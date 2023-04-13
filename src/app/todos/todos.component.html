@@ -1,0 +1,82 @@
+<!-- Encabezado -->
+
+<section class="heading-section">
+    <h1 class="title is-1 has-text-centered">TODO App</h1>
+</section>
+
+<!-- Tarjeta blanca añadir -->
+
+<div class="container add-todo-box-container">
+
+    <div class="add-todo-box">
+        <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+            <h2 class="title is-5">Nuevo TODO</h2>
+            
+            <div class="field is-grouped" style="margin : 0">
+                <p class="control is-expanded">
+                    <input  ngModel 
+                    #todoTextField="ngModel" 
+                    minlength="3"
+                    required
+                    name="text" 
+                    class="input" 
+                    type="text" 
+                    placeholder="Escribe tu ToDo ...">
+                </p>
+                <p class="control">
+                    <button type="submit" class="button alt-gradient-button">
+                        <i class="material-icons">add</i>
+                        Añadir
+                    </button>
+                </p>
+            </div>
+
+            <div *ngIf="form?.touched && form?.invalid">
+                <p class="help is-danger" *ngIf="form.controls['text'].errors?.['required']">Porfavor introduce tu ToDo :)</p>
+                <p class="help is-danger" *ngIf="form.controls['text'].errors?.['minlength']">Tu ToDo debe tener al menos 3 caracteres :(</p>
+            </div>
+
+        </form>
+    
+    </div>
+</div>
+
+<!-- Seccion de listas -->
+
+<section class="section">
+    <div class="container">
+        <div class="todos-list">
+            <app-todo-item 
+            *ngFor="let todo of todos; index as i"
+            [todo]="todo" 
+            (todoClicked)="toggleClicked(todo)"
+            (editClicked)="editTodo(todo)"
+            (deleteClicked)="deleteTodo(todo)">
+            </app-todo-item>
+
+            <!-- <div class="todo-item">
+                <div class="check-box">
+                    <i class="material-icons">check</i>
+                </div>
+
+                <div class="todo-text">
+                    Alternatively, the current configuration can be loaded as a static font instead of a variable one
+                </div>
+
+
+                <div class="todo-controls-box">
+                    <div class="todo-controls-button">
+                        <i class="material-icons">edit</i>
+                    </div>
+
+               
+                    <div class="todo-controls-button is-danger">
+                        <i class="material-icons">delete</i>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+</section>
+

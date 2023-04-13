@@ -1,0 +1,32 @@
+.heading-section {
+    background: rgb(11,20,4);
+    background: linear-gradient(0deg, rgba(11,20,4,1) 0%, rgba(88,101,25,1) 0%, rgba(138,198,138,0.9752275910364145) 81%, rgba(138,198,138,0.9752275910364145) 100%);
+    padding: 100px;
+    padding-bottom:150px;
+
+    h1.title {
+        font-weight: bold;
+        color:aliceblue;
+        text-shadow: 0px 1px 2px rgba(black,0.4);
+    }
+
+}
+
+.container {
+    max-width: 800px;
+}
+
+.add-todo-box-container {
+    position:sticky;
+    top:0;
+    z-index: 1;
+}
+
+.add-todo-box {
+    padding: 25px;
+    background: white;
+    border-radius: 5px;
+    margin-top: -68px;
+    box-shadow: 0 4px 12px rgba(black, 0.09);
+}
+
